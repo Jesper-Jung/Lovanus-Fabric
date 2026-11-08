@@ -1,4 +1,4 @@
-package lovanus_amba_pkg;
+package amba_pkg;
 /* verilator lint_off UNUSEDPARAM */
 
 localparam  HADDR_WIDTH     = 32;
