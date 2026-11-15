@@ -22,12 +22,13 @@
 //=================================================================* * * * *---*
 
 module ahb_splitter import amba_pkg::*; #(
-
+     parameter                  = ; 
 ) (
      input                  hclk_i
     ,input                  hrst_ni
 
-    ,
+    ,input  ahb_req_t       src_i       []
+    ,output 
 );
 
 endmodule
