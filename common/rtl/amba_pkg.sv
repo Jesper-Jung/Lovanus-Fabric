@@ -4,8 +4,8 @@ package amba_pkg;
 localparam  HADDR_WIDTH     = 32;
 localparam  HDATA_WIDTH     = 32;
 
-//------------------------------------------------------------------------------
-//  AHB signal definition
+//--------------------------------------
+//  ## AHB signal definition ##
 
 localparam  HTRANS_WIDTH    = 2;
 typedef enum logic [HTRANS_WIDTH-1:0] {
@@ -60,8 +60,8 @@ typedef enum logic [HRESP_WIDTH-1:0] {
 
 localparam  HMASTER_WIDTH   = 4;
 
-//------------------------------------------------------------------------------
-//  APH port structure Definition
+//--------------------------------------
+//  ## AHB Port Definition ##
 //
 //  [Usage]
 //      input   ahb_req_t  i_src
@@ -69,6 +69,7 @@ localparam  HMASTER_WIDTH   = 4;
 //
 //      output  ahb_req_t  o_dst
 //      input   ahb_resp_t i_dst
+//
 
 typedef struct packed {
     logic     [HADDR_WIDTH-1:0] haddr;
@@ -89,6 +90,7 @@ typedef struct packed {
 typedef struct packed {
     ahb_req_aph_t               aph;                   
     ahb_req_dph_t               dph;
+    logic                       hready;
 } ahb_req_t;
 
 typedef struct packed {
