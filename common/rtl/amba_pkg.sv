@@ -23,13 +23,16 @@ typedef enum logic [HSIZE_WIDTH-1:0] {
     HSIZE_B64               = 3'b011,
     HSIZE_B128              = 3'b100,
     HSIZE_B256              = 3'b101,
-    HSIZE_B1024             = 3'b111,
-    HSIZE_BYTE              = HSIZE_B8,
-    HSIZE_HWORD             = HSIZE_B16,
-    HSIZE_WORD              = HSIZE_B32,
-    HSIZE_DWORD             = HSIZE_B64
+    HSIZE_B512              = 3'b110,
+    HSIZE_B1024             = 3'b111
 } hsize_e;
- 
+
+// Aliases (enum names must have unique values, so these live outside the enum)
+localparam hsize_e HSIZE_BYTE   = HSIZE_B8;
+localparam hsize_e HSIZE_HWORD  = HSIZE_B16;
+localparam hsize_e HSIZE_WORD   = HSIZE_B32;
+localparam hsize_e HSIZE_DWORD  = HSIZE_B64;
+
 localparam  HBURST_WIDTH    = 3;
 typedef enum logic [HBURST_WIDTH-1:0] {
     HBURST_SINGLE           = 3'b000,
@@ -88,7 +91,7 @@ typedef struct packed {
 } ahb_req_dph_t;
 
 typedef struct packed {
-    ahb_req_aph_t               aph;                   
+    ahb_req_aph_t               aph;
     ahb_req_dph_t               dph;
     logic                       hready;
 } ahb_req_t;

@@ -1,7 +1,7 @@
 interface ahb_if import amba_pkg::*; (
      input logic    hclk_i
     ,input logic    hrst_ni
-)
+);
 
     ahb_req_t   ahb_req;
     ahb_resp_t  ahb_resp;
